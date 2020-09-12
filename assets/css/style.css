@@ -1,0 +1,60 @@
+*{
+	box-sizing: border-box;
+}
+
+html, body{
+	padding	: 0;
+	margin:	0;
+	height: 100%;
+	width: 100%;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	font-display: optional;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-brand {
+    font-size: 20px;
+}
+
+.bg-gradient, footer{
+    background-image: linear-gradient(to right, black, blue);
+}
+.search-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar{
+    width: 100%;
+	height: 50px;
+	color: #FFF;
+	background-image: linear-gradient(to right, black, blue);
+	position: inherit;
+	font-size: 20px;
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+	will-change: transform;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	z-index: 1000;
+}
+
+#install-app{
+	height: 30px;
+	width: 60px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+    background-image: url("../images/icons/button_install.png");
+}
+
+.city-name {
+    font-size: 30px;
+}
+
+.forecast-date {
+    font-size: 18px;
+}

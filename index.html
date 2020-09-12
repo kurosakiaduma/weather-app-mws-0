@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--App meta-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Smash It: Weather</title>
+
+    <link rel="favicon" href="./assets/images/touch/favicon.ico">
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!--Manifest-->
+    <link rel="manifest" href="./manifest.webmanifest">
+
+    <!--Device-specific metadata-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Smash It: Weather">
+    <meta name="apple-mobile-web-app-title" content="SI: Weather">
+    <meta name="theme-color" content="#38b6ff">
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Device-specific icon-->
+    <link rel="icon" sizes="128x128" href="./assets/images/touch/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="./assets/images/touch/icon-128x128.png">
+    <link rel="icon" sizes="180x180" href="./assets/images/touch/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="./assets/images/touch/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="./assets/images/touch/icon-192x192.png">
+    <link rel="icon" sizes="256x256" href="./assets/images/touch/icon-256x256.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="./assets/images/touch/icon-256x256.png">
+    <link rel="icon" sizes="384x384" href="./assets/images/touch/icon-384x384.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="./assets/images/touch/icon-384x384.png">
+    <link rel="icon" sizes="512x512" href="./assets/images/touch/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="./assets/images/touch/icon-512x512.png">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-dark bg-gradient justify-content-between">
+            <a href="#" class="navbar-brand">Smash It</a>
+            <button class="btn" type="button" id="install-app" aria-label="Install app"></button>
+        </nav>
+    </header>
+
+    <main class="UI">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 bg-light">
+                    <p class="search-header my-1">Search for a city</p>
+                    <div class="input-group mb-3">
+                        <input id="city-input" type="text" class="form-control" placeholder="Enter city name"
+                            aria-label="Enter city name">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="search-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mb-3" type="button" id="clear-history">Clear history</button>
+                    <form id="history"></form>
+                </div>
+                <div class="col-8">
+                    <div class="row mr-0">
+                        <div class="col-12 border border-dark m-3 rounded">
+                            <div class="row">
+                                <div class="col-12">
+                                    <span id="city-name" class="city-name align-middle"></span>
+                                    <img id="current-pic" src="./assets/images/icons/location_city-24px.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p id="temperature"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p id="humidity"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p id="wind-speed"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 d-flex">
+                                    <p id="UV-index"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>5-Day Forecast</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+    <script>
+        //Service worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker is registered 👍', registration);
+                    })
+                    .catch(err => {
+                        console.error('Registration failed 👎:', err);
+                    });
+            });
+        }
+    </script>
+
+    <script src="./assets/js/install.js"></script>
+</body>
+
+</html>

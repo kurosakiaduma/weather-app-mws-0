@@ -1,0 +1,42 @@
+{
+  "name": "Smash It: Weather",
+  "short_name": "SI: Weather",
+  "lang": "en-US",
+  "description": "A fully featured standalone weather app that provides weather information and push notifications to users on updates regarding the status of 'Smash It'-organized events depending of existing whether conditions",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#38b6ff",
+  "background_color": "#38b6ff",
+  "icons": [
+    {
+      "src": "/assets/images/touch/icon-128x128.png",
+      "sizes": "128x128"
+    },
+    {
+        "src": "/assets/images/touch/apple-touch-icon.png",
+        "sizes": "180x180"
+    },
+    {
+      "src": "/assets/images/touch/icon-192x192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/images/touch/maskable_icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/touch/icon-256x256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/assets/images/touch/icon-384x384.png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/assets/images/touch/icon-512x512.png",
+      "sizes": "512x512"
+    }
+  ]
+}
